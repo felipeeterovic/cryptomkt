@@ -18,6 +18,6 @@ class spot_trader:
 
 
     def get_spot_trading_balance(self, currency = ""):
-        currency.upper()
+        currency = currency.upper()
         currency = currency if currency == "" else f"/{currency}"
         return self.base(f"https://api.exchange.cryptomkt.com/api/3/spot/balance{currency}")
