@@ -8,8 +8,7 @@ def base(url, params = {}):
     if "error" in response:
         print(f"Error: {response['error']['code']}: {response['error']['message']}")
         return None
-    else:
-        return response
+    return response
 
 def get_currencie(currency = ""):
     currency.upper()
