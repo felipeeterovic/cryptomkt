@@ -21,3 +21,7 @@ class spot_trader:
         currency = currency.upper()
         currency = currency if currency == "" else f"/{currency}"
         return self.base(f"https://api.exchange.cryptomkt.com/api/3/spot/balance{currency}")
+
+    def get_order(self, client_order_id = ""):
+        client_order_id = client_order_id if client_order_id = "" else f"/{client_order_id}"
+        return self.base(f"https://api.exchange.cryptomkt.com/api/3/spot/order{client_order_id}")
