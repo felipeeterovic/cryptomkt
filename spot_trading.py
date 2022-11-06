@@ -9,15 +9,12 @@ class spot_trader:
         self.session = requests.session()
         self.session.auth = (self.api_key, self.api_secret)
 
-
-
     def base(self, url):
         response = self.session.get(url).json()
         if "error" in response:
             print(f"Error: {response['error']['code']}: {response['error']['message']}")
             return None
         return response
-
 
     def get_spot_trading_balance(self, currency = ""):
         currency = currency.upper()
@@ -31,6 +28,13 @@ class spot_trader:
     def create_new_order(self, symbol, side, price, quantity):
         order_data = {"symbol": symbol.upper(), "side": side, "quantity": quantity, "price": price}
         response = self.session.post('https://api.exchange.cryptomkt.com/api/3/spot/order/', data = orderData).json()
+        if "error" in response:
+            print(f"Error: {response['error']['code']}: {response['error']['message']}")
+            return None
+        return response
+
+    def cancel_order(self, client_order_id):
+        response = self.session.delete(f"https://api.exchange.cryptomkt.com/api/3/spot/order/{client_order_id}}").json()
         if "error" in response:
             print(f"Error: {response['error']['code']}: {response['error']['message']}")
             return None
