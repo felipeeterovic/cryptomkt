@@ -38,3 +38,13 @@ def get_trades(symbol = "", params = {}):
     symbol.upper()
     symbol = symbol if symbol == "" else f"/{symbol}"
     return base(f"https://api.exchange.cryptomkt.com/api/3/public/trades{symbol}",params)
+
+def get_order_book(symbol = "", params = {}):
+    symbol.upper()
+    symbol = symbol if symbol == "" else f"/{symbol}"
+    return base(f"https://api.exchange.cryptomkt.com/api/3/public/orderbook{symbol}",params)
+
+def get_candles(symbol = "", params = {}):
+    symbol.upper()
+    symbol = symbol if symbol == "" else f"/{symbol}"
+    return base(f"https://api.exchange.cryptomkt.com/api/3/public/candles{symbol}",params)
