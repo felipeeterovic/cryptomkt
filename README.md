@@ -6,6 +6,6 @@ The goal of this project is provide some basic tools to connect to cryptomkt.com
 
 This file contains functions to get public information from application.
 
-##spot_trading
+## spot_trading
 
 This file contains functions to get private information and buy/sell cryptocurrencies
